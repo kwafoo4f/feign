@@ -22,7 +22,6 @@ import java.net.URL;
  */
 @Slf4j
 @Configuration
-@ConditionalOnMissingBean
 public class FeignClientRegistry implements BeanPostProcessor {
     @Autowired
     private FeignProxyFactory feignProxyFactory;

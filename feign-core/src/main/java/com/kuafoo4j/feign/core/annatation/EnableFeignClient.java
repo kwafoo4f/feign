@@ -1,5 +1,8 @@
 package com.kuafoo4j.feign.core.annatation;
 
+import com.kuafoo4j.feign.core.config.FeignClientRegistry;
+import org.springframework.context.annotation.Import;
+
 import java.lang.annotation.*;
 
 /**
@@ -11,6 +14,7 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Inherited
+@Import(FeignClientRegistry.class)
 public @interface EnableFeignClient {
     /**
      * 包路径
