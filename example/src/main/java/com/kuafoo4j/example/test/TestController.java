@@ -16,11 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/feign/test")
 public class TestController {
     @Autowired
-    private FeignProxyFactory feignProxyFactory;
+    private OrderFeignClient orderFeignClient;
 
     @GetMapping
     public String feignTest() {
-        OrderFeignClient orderFeignClient = (OrderFeignClient) feignProxyFactory.getFeignProxy(OrderFeignClient.class);
         return orderFeignClient.getServerInfo();
     }
 

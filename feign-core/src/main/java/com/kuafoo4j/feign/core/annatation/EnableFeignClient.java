@@ -4,6 +4,7 @@ import java.lang.annotation.*;
 
 /**
  * 开启feign
+ *
  * @author zk
  */
 @Target(ElementType.TYPE)
@@ -11,4 +12,9 @@ import java.lang.annotation.*;
 @Documented
 @Inherited
 public @interface EnableFeignClient {
+    /**
+     * 包路径
+     * @return
+     */
+    String basePacket() default "";
 }

@@ -20,7 +20,7 @@ public class FeignProxyFactory {
      *
      * @return
      */
-    public Object getFeignProxy(Class clazz) {
+    public <T >T getFeignProxy(Class<T> clazz) {
         try {
             /*
              * JDK动态代理方法
@@ -28,7 +28,7 @@ public class FeignProxyFactory {
              * Class<?>[] interfaces:接口的泛型
              *  InvocationHandler h: 增强方法（代理类的方法）
              */
-            return Proxy.newProxyInstance(clazz.getClassLoader(), new Class[]{clazz}, feignInvocationHandler);
+            return (T) Proxy.newProxyInstance(clazz.getClassLoader(), new Class[]{clazz}, feignInvocationHandler);
         } catch (Exception e) {
             e.printStackTrace();
         }
