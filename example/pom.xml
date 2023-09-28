@@ -21,7 +21,19 @@
     <dependencies>
         <dependency>
             <groupId>com.kuafoo4j</groupId>
-            <artifactId>feign-core</artifactId>
+            <artifactId>feign-autoconfiguration</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <!-- 注册中心客户端-->
+        <dependency>
+            <groupId>org.kwafoo4f</groupId>
+            <artifactId>client</artifactId>
+            <version>1.0.1</version>
+        </dependency>
+        <!--负载均衡-->
+        <dependency>
+            <groupId>com.kuafoo4j</groupId>
+            <artifactId>phoenix-loadbalance</artifactId>
             <version>1.0.0</version>
         </dependency>
     </dependencies>

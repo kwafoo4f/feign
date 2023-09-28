@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public interface OrderFeignClient {
     String PRE_FIX = "/service";
 
-    @GetMapping("/server-info")
+    @GetMapping(PRE_FIX + "/server-info")
     String getServerInfo();
 
 }

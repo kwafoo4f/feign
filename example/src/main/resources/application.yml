@@ -1,0 +1,10 @@
+server:
+  port: 5082
+spring:
+  application:
+    name: feign-example
+
+# 注册中心地址
+phoenix:
+  discovery:
+    host: 127.0.0.1:8848

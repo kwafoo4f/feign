@@ -1,10 +1,5 @@
 package com.kuafoo4j.feign.core.proxy;
 
-import com.kuafoo4j.feign.core.annatation.FeignClient;
-import org.springframework.core.annotation.AnnotationUtils;
-
-import java.lang.annotation.Annotation;
-import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
 
 /**
@@ -14,7 +9,7 @@ import java.lang.reflect.Proxy;
  */
 public class FeignProxyFactory {
 
-    private InvocationHandler feignInvocationHandler;
+    private FeignInvocationHandler feignInvocationHandler;
 
     public FeignProxyFactory(FeignInvocationHandler feignInvocationHandler) {
         this.feignInvocationHandler = feignInvocationHandler;
@@ -25,7 +20,7 @@ public class FeignProxyFactory {
      *
      * @return
      */
-    public Object getFeignProxy(Object obj) {
+    public Object getFeignProxy(Class clazz) {
         try {
             /*
              * JDK动态代理方法
@@ -33,7 +28,7 @@ public class FeignProxyFactory {
              * Class<?>[] interfaces:接口的泛型
              *  InvocationHandler h: 增强方法（代理类的方法）
              */
-            return Proxy.newProxyInstance(obj.getClass().getClassLoader(), obj.getClass().getInterfaces(), feignInvocationHandler);
+            return Proxy.newProxyInstance(clazz.getClassLoader(), new Class[]{clazz}, feignInvocationHandler);
         } catch (Exception e) {
             e.printStackTrace();
         }
