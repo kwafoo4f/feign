@@ -101,7 +101,7 @@ public class FeignInvocationHandler implements InvocationHandler {
         }
 
         String url = urlStringBuffer.toString();
-        log.info("feign http proxy url : {}",  url);
+·        log.info("feign http proxy url : {}",  url);
         // 构建http请求
         String jsonStr = args == null ? restTemplate.getForObject(url, String.class)  : restTemplate.getForObject(url, String.class,args);
 
